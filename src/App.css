@@ -1,0 +1,26 @@
+.content{
+    width: 80%;
+    margin: auto;
+}
+
+/* App.css */
+.split-screen {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .editor, .preview {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    overflow: auto;
+  }
+  
+  .editor {
+    background-color: #f7f7f7;
+  }
+  
+  .preview {
+    background-color: #ffffff;
+  }
+  
