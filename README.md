@@ -25,159 +25,86 @@ You will also see any lint errors in the console.
 Pass form schema (json structure) as below.
 ```
 {
-    "productName": {
-        "label": "Product Name",
-        "key": "productName",
-        "type": "text",
-        "props": {
-            "required": true,
-            "name": "product_name_kk",
-            "size": "45",
-            "maxLength": 15
-        }
+    {
+  "formTitle": "User Registration",
+  "formDescription": "Please fill in the details below to create an account.",
+  "fields": [
+    {
+      "id": "username",
+      "label": "Username",
+      "type": "text",
+      "placeholder": "Enter your username",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "maxLength": 20,
+        "pattern": "^[a-zA-Z0-9_]+$",
+        "errorMessage": "Username must be alphanumeric and between 3 to 20 characters."
+      }
     },
-    "price": {
-        "label": "Price",
-        "key": "price",
-        "type": "number",
-        "props": {
-            "required": true,
-            "size": "45",
-            "name": "product_price",
-            "maxLength": 60
-        }
+    {
+      "id": "email",
+      "label": "Email Address",
+      "type": "email",
+      "placeholder": "Enter your email",
+      "required": true,
+      "validation": {
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+        "errorMessage": "Please enter a valid email address."
+      }
     },
-    "merchandiserEmail": {
-        "label": "Merchandiser Email",
-        "key": "merchandiserEmail",
-        "type": "email",
-        "props": {
-            "required": true,
-            "size": "45",
-            "name": "merchant_email",
-            "maxLength": 60,
-            "email": "true"
-        }
+    {
+      "id": "password",
+      "label": "Password",
+      "type": "password",
+      "placeholder": "Enter your password",
+      "required": true,
+      "validation": {
+        "minLength": 8,
+        "errorMessage": "Password must be at least 8 characters long."
+      }
     },
-    "availablityStatus": {
-        "label": "Availablity Status",
-        "key": "availablityStatus",
-        "type": "radio",
-        "options": [
-            {
-                "key": "yes",
-                "label": "No",
-                "name": "status",
-                "value": "no"
-            },
-            {
-                "key": "no",
-                "label": "Yes",
-                "name": "status",
-                "value": "yes"
-            }
-        ],
-        "props": {
-            "required": true,
-            "name": "avail_status"
-        }
+    {
+      "id": "dob",
+      "label": "Date of Birth",
+      "type": "date",
+      "required": true
     },
-    "discountDays": {
-        "label": "Discount Days",
-        "key": "discountDays",
-        "type": "checkbox",
-        "options": [
-            {
-                "key": "sunday",
-                "label": "Sunday",
-                "value": "sunday"
-            },
-            {
-                "key": "monday",
-                "label": "Monday",
-                "value": "monday"
-            },
-            {
-                "key": "others",
-                "label": "Other Days",
-                "value": "others"
-            }
-        ],
-        "props": {
-            "name": "avail_days"
-        }
+    {
+      "id": "newsletter",
+      "label": "Subscribe to Newsletter",
+      "type": "checkbox",
+      "required": false
     },
-    "colors": {
-        "label": "Colors",
-        "key": "colors",
-        "type": "select",
-        "options": [
-            {
-                "key": "gray",
-                "label": "Gray",
-                "value": "#cccccc"
-            },
-            {
-                "key": "white",
-                "label": "White",
-                "value": "#ffffff"
-            },
-            {
-                "key": "black",
-                "label": "Black",
-                "value": "#000000"
-            }
-        ],
-        "props": {
-            "required": true,
-            "name": "colors"
-        }
+    {
+      "id": "country",
+      "label": "Country",
+      "type": "select",
+      "options": [
+        { "value": "us", "label": "United States" },
+        { "value": "ca", "label": "Canada" },
+        { "value": "uk", "label": "United Kingdom" }
+      ],
+      "required": true
     },
-    "availableDate": {
-        "label": "Available Date",
-        "type": "datetime",
-        "key": "availableDate",
-        "props": {
-            "required": true,
-            "name": "available_date"
-        },
-        "validations": {
-            "validateAvailableDate":{
-                "args": {
-                    "from": "2018/9/6 19:25:48"
-                },
-                "error": "Fix the selected date"
-            }
-        }
-    },
-    "description": {
-        "label": "Description",
-        "key": "description",
-        "type": "textarea",
-        "props": {
-            "required": true,
-            "name": "description",
-            "rows": 10,
-            "cols": 50,
-            "maxLength": 600
-        }
-    },
-    "image": {
-        "label": "Image",
-        "key": "image",
-        "type": "file",
-        "props": {
-            "name": "image",
-            "multiple": true
-        },
-        "validations": {
-            "validateFileType":{
-                "args": { 
-                    "filetypes": ["png", "jpg", "jpeg"] 
-                },
-                "error": "File type not supported"
-            }
-        }
-    }    
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "radio",
+      "options": [
+        { "value": "male", "label": "Male" },
+        { "value": "female", "label": "Female" },
+        { "value": "other", "label": "Other" }
+      ],
+      "required": true
+    }
+  ],
+  "submitButton": {
+    "label": "Register",
+    "action": "submitForm"
+  }
+}
+
+          
 }
 ```
